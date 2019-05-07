@@ -1,0 +1,13 @@
+<h1>HOME</h1>
+<br>
+
+{% for post in blogs %}
+    <div class = "container">
+        <a href="{% url 'detail' post.id %}">
+                <h2>{{post.title}}</h2>
+        </a>
+        <!-- <p>{{post.writer}}</p>
+        <p>{{post.body}}</p> -->
+
+    </div>
+{% endfor %}
