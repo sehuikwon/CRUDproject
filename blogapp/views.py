@@ -10,3 +10,14 @@ def home(request):
 def detail(request, blog_id):
     blog_detail = get_object_or_404(Blog, pk = blog_id)
     return render(request, 'detail.html', {'blog':blog_detail})
+
+def new(request):
+    return render(request, 'new.html')
+
+def create(request):
+    blog = Blog()
+    blog.title = request.GET['title']
+    blog.writer = request.GET['writer']
+    blog.body = request.GET['body']
+    blog.save()
+    return redirect('/detail/' + str(blog.id))

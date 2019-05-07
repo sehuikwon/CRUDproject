@@ -1,9 +1,15 @@
 <h1>새 글 작성창</h1>
 <br>
-<form action="{% url 'new' %}" method="POST">
+<form action="{% url 'create' %}" method="GET">
 
-    {% csrf_token %}
-    title : <input type="text">
-    content : <textarea name="" id="" cols="30" rows="10"></textarea>>
+    <!-- {% csrf_token %} -->
+    title : <input type="text" name="title">
+    <br>
+    writer : <input type="text" name="writer">
+    <br>
+    content : <textarea name="body" cols="30" rows="10"></textarea>>
+    <br>
+    <input type="submit" value="submit">
+
 
 </form>
