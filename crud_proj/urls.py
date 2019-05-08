@@ -22,7 +22,9 @@ urlpatterns = [
     path('', blogapp.views.home, name='home'),
     path('detail/<int:blog_id>', blogapp.views.detail, name='detail'),
     path('new/', blogapp.views.new, name='new'),
-    path('detail/create/', blogapp.views.create, name='create'),
+    path('create/', blogapp.views.create, name='create'),
     path('delete/<int:del_blog_id>', blogapp.views.delete, name='delete'),
+    path('edit/<int:edit_blog_id>', blogapp.views.edit, name='edit'),
+    path('update/<int:update_blog_id>', blogapp.views.update, name="update"),
 
 ]

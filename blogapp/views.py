@@ -26,3 +26,15 @@ def delete(request, del_blog_id):
     delete_post = get_object_or_404(Blog, pk=del_blog_id)
     delete_post.delete()
     return redirect('home')
+
+def edit(request, edit_blog_id):
+    edit_post = get_object_or_404(Blog, pk=edit_blog_id)
+    return render(request, 'edit.html', {'post':edit_post})
+
+def update(request, update_blog_id):
+    update_post = get_object_or_404(Blog, pk=update_blog_id)
+    update_post.title = request.POST['title']
+    update_post.writer = request.POST['writer']
+    update_post.body = request.POST['body']
+    update_post.save()
+    return redirect('home')
