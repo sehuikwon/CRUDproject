@@ -21,3 +21,8 @@ def create(request):
     blog.body = request.GET['body']
     blog.save()
     return redirect('/detail/' + str(blog.id))
+
+def delete(request, del_blog_id):
+    delete_post = get_object_or_404(Blog, pk=del_blog_id)
+    delete_post.delete()
+    return redirect('home')
